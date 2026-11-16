@@ -72,10 +72,15 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C59 | NPC needs | NPCs have no simulated needs and never collapse. Occasional requests can read like needs. | 2026-11-16 |
 | C60 | NPC travel | NPCs normally stay at their camp. At a specific progression block requiring a second person, the player can ask one to accompany them there; afterwards she goes back. | 2026-11-16 |
 | C61 | NPC joining | Survivors join via scripted story events (found in a scene, help needed, then joins). Specifics decided with the story. | 2026-11-16 |
+| C62 | Protagonist art | Protagonist never appears in scenes or cutscenes. He has a VN-style dialogue portrait with a few expressions (e.g. neutral, happy, tired, disgusted, surprised). | 2026-11-16 |
+| C63 | Action feedback | Simple actions (no window) show a progress circle that appears for about a second, fills, and the action completes. Complex actions like crafting use separate menus. | 2026-11-16 |
+| C64 | Result feedback | Gained items get a visible indication (e.g. "+3 Wood"); placement decided when building the UI. No numeric stat change popups, but some up/down indication per stat may be needed. Rare or important results get a character comment. | 2026-11-16 |
+| C65 | Stat warnings | Bars change color or flash at thresholds; the character comments once per threshold crossing. | 2026-11-16 |
+| C66 | Transitions | Scene change probably a quick fade (about 0.2-0.3 s); to be tuned by experiment. | 2026-11-16 |
 
 ## Recommended (pending)
 
-Round 8 (presentation and action feedback) recommendations are in the conversation.
+Round 9 (UI, saving, accessibility, localization) recommendations are in the conversation.
 
 ## Open
 
@@ -85,6 +90,5 @@ Round 8 (presentation and action feedback) recommendations are in the conversati
 - Exact stat effects and decay rates.
 - Story details, escape method, post-ending, mystery content: deferred until a prototype exists.
 - NPC relationship growth mechanics and NPC usefulness (ideas in conversation round 7: talking, gifts, requests, levels; daily jobs, specialty, two-person tasks, company). Deferred.
-- Character presentation and action feedback without walking.
 - UI, accessibility, saving.
 - Content scope and asset workload.
