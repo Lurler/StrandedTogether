@@ -26,24 +26,33 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C13 | Scaling | Point filtering only, no smoothing. Window resize adds black bars (letterbox/pillarbox). | 2026-11-16 |
 | C14 | Art source | All art generated in ChatGPT and supplied by the designer. | 2026-11-16 |
 | C15 | Business | Commercial project. | 2026-11-16 |
+| C16 | Art | Time of day, weather (rain etc.) done via color grading and effects, never redrawn backgrounds. Camp upgrades as overlays on a fixed camp background. | 2026-11-16 |
+| C17 | Art specs | Exact resolutions and layer specs will be supplied by the designer together with the art. | 2026-11-16 |
+| C18 | Time | Free clock. The player can do anything at any hour, but without rest they eventually pass out. Resting is arranged so the player wakes up in the morning where possible. | 2026-11-16 |
+| C19 | Action cost | Tiers: free (examine, inventory, browsing crafting, eating carried food, talking), quick ~5-10 min (pick up loose item), work 30-120 min (harvest, fish, chop, craft, build), travel 10-30 min by distance. | 2026-11-16 |
+| C20 | Action cost | Stats deplete with time by default. Specific actions can define extra stat costs (hard work: extra energy; dirty work: extra hygiene). | 2026-11-16 |
+| C21 | Needs | Six stats from the brief: health, hunger, hydration, energy, comfort/sanity, hygiene (exact roles pending, see R05). | 2026-11-16 |
+| C22 | Collapse | Collapse when energy or health hits zero. Hunger/thirst at zero only drain health slowly. | 2026-11-16 |
+| C23 | Daily curve | Upkeep dominates early days; camp upgrades reduce it over time, leaving more time for exploring and building. | 2026-11-16 |
+| C24 | Onboarding | The opening is orchestrated: only tutorial-relevant actions are available until the player learns the basics, then full freedom. | 2026-11-16 |
+| C25 | Camp | Upgrades give concrete effects, e.g. better shelter: higher energy on waking, less affected by bad weather while sleeping, new interactions. | 2026-11-16 |
+| C26 | Goal | Quest structure: explore the whole island by finding and crafting the right items. Once everything is unlocked, a way off the island appears and finishing it wins the game. No deadline. | 2026-11-16 |
 
 ## Recommended (pending)
 
 | ID | Area | Recommendation |
 |---|---|---|
-| R01 | Resolution | Scene layer 320x180, UI layer 640x360. Whole-number scaling to 720p, 1080p, 1440p, 4K. 480x270/960x540 leaves big bars at 1440p. |
-| R02 | Resolution | Item sprites, hover outline and characters drawn at scene resolution; text and UI at UI resolution. |
-| R03 | Art pipeline | Avoid needing multiple versions of one background. Time of day and weather via palette tint and overlays; camp upgrades as overlay sprites on a fixed camp background. |
-| R04 | Business | Steam requires disclosing AI-generated content on the store page; plan for it. |
+| R05 | Needs | Roles for the six stats: Hunger/Thirst/Energy/Health as survival core; Hygiene slow-decay (about 2-3 days), low causes illness risk and Mood loss; Comfort/Sanity as "Mood", driven by shelter, food variety, weather, company, decor; low Mood makes actions slower, high Mood gives small bonuses. |
 
-Round 2 (time, needs, daily loop) recommendations are in the conversation; they get logged here once answered.
+Round 3 (scenes, travel, exploration, environment) recommendations are in the conversation.
 
 ## Open
 
 - Release timeline / milestones (not answered yet, not blocking).
-- Final background resolution: 320x180 vs 480x270 (see R01).
+- Resolutions: designer will supply specs with the art.
 - What triggers collapse, and exact list of "safe to lose" items.
-- Time model, action costs, needs list, day/night.
+- Exact stat effects and decay rates.
+- Where sleeping is allowed outside camp.
 - Scene interaction, travel, environment changes (weather, tides).
 - Inventory, tools, crafting, food, resource renewal.
 - Camp upgrades and their effect on daily play.
