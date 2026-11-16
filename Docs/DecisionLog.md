@@ -61,10 +61,17 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C48 | Damage | Weather never damages the camp. One-off scripted events are allowed if the story needs them. | 2026-11-16 |
 | C49 | Gating | Some camp upgrades are required for main progression; the rest are quality of life. | 2026-11-16 |
 | C50 | Balance | Stockpiling handled by tuning; activity spots may also deplete after a few attempts (per-spot scripting). | 2026-11-16 |
+| C51 | Protagonist | Fixed male protagonist with a name and background. No protagonist exposition; the player drives all actions. Exposition is for NPCs only. | 2026-11-16 |
+| C52 | NPCs | The two survivors are female castaways. Light romance element between them and the protagonist. | 2026-11-16 |
+| C53 | Objectives | When the player finds a clear blocker, the character writes a journal note (quest task). It is removed when resolved. Purpose: help players keep track. | 2026-11-16 |
+| C54 | Hints | Main-path blockers are always deducible (e.g. vines + machete); exact hinting method designed later, not too obvious. Some optional content can stay fully secret. | 2026-11-16 |
+| C55 | Story | Rough four-chapter shape: alone on the beach (tutorial, first camp); jungle (first tools, first survivor); interior (second camp, second survivor); escape. Details later. | 2026-11-16 |
+| C56 | Cutscenes | Important milestones can use mini cutscenes: a background image with text over it. | 2026-11-16 |
+| C57 | Tone | Mostly light, with a few sincere moments, mainly in NPC scenes. | 2026-11-16 |
 
 ## Recommended (pending)
 
-Round 6 (objectives, story, ending) recommendations are in the conversation.
+Round 7 (NPCs and relationships) recommendations are in the conversation.
 
 ## Open
 
@@ -73,7 +80,7 @@ Round 6 (objectives, story, ending) recommendations are in the conversation.
 - Exact list of "safe to lose" items.
 - Exact stat effects and decay rates.
 - How NPCs are useful without separate storage/inventory.
-- Objectives, story beats, ending.
+- Story details, escape method, post-ending, mystery content: deferred until a prototype exists.
 - NPCs, relationships, contributions.
 - Character presentation and action feedback without walking.
 - UI, accessibility, saving.
