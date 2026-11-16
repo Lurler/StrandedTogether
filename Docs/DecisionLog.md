@@ -68,10 +68,14 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C55 | Story | Rough four-chapter shape: alone on the beach (tutorial, first camp); jungle (first tools, first survivor); interior (second camp, second survivor); escape. Details later. | 2026-11-16 |
 | C56 | Cutscenes | Important milestones can use mini cutscenes: a background image with text over it. | 2026-11-16 |
 | C57 | Tone | Mostly light, with a few sincere moments, mainly in NPC scenes. | 2026-11-16 |
+| C58 | Romance | Both relationships progress independently during play, non-exclusive. A short ending epilogue reflects the closer relationship; only the epilogue branches. | 2026-11-16 |
+| C59 | NPC needs | NPCs have no simulated needs and never collapse. Occasional requests can read like needs. | 2026-11-16 |
+| C60 | NPC travel | NPCs normally stay at their camp. At a specific progression block requiring a second person, the player can ask one to accompany them there; afterwards she goes back. | 2026-11-16 |
+| C61 | NPC joining | Survivors join via scripted story events (found in a scene, help needed, then joins). Specifics decided with the story. | 2026-11-16 |
 
 ## Recommended (pending)
 
-Round 7 (NPCs and relationships) recommendations are in the conversation.
+Round 8 (presentation and action feedback) recommendations are in the conversation.
 
 ## Open
 
@@ -79,9 +83,8 @@ Round 7 (NPCs and relationships) recommendations are in the conversation.
 - Resolutions: designer will supply specs with the art.
 - Exact list of "safe to lose" items.
 - Exact stat effects and decay rates.
-- How NPCs are useful without separate storage/inventory.
 - Story details, escape method, post-ending, mystery content: deferred until a prototype exists.
-- NPCs, relationships, contributions.
+- NPC relationship growth mechanics and NPC usefulness (ideas in conversation round 7: talking, gifts, requests, levels; daily jobs, specialty, two-person tasks, company). Deferred.
 - Character presentation and action feedback without walking.
 - UI, accessibility, saving.
 - Content scope and asset workload.
