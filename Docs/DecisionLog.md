@@ -19,7 +19,7 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C06 | Phase | Design first. No code or architecture until the design is settled. | 2026-11-16 |
 | C07 | Experience | Cozy castaway (Castaway DS style). Survival is real but forgiving; fun comes from routine, camp growth and people. Only a tiny mystery element as exploration flavor. | 2026-11-16 |
 | C08 | Failure | No death. On collapse, something bad but harmless happens (e.g. monkeys steal some items, Castaway DS style). Only items flagged "safe to lose" can be taken. Stats drop, but critically low stats are reset to relatively safe values so play continues. | 2026-11-16 |
-| C09 | Progression | Spine is gathering, crafting, camp upgrading and exploring. No adventure puzzles in the initial version; interactions are resource-cost actions (click river, spend time and energy, get fish). Real puzzles may be considered later during polish. | 2026-11-16 |
+| C09 | Progression | Spine is gathering, crafting, camp upgrading and exploring. Interactions are resource-cost actions (click river, spend time and energy, get fish). "Use item X on object Y" counts as the puzzle form and is in from the start. No bespoke logic puzzles for now. | 2026-11-16 |
 | C10 | Length | Target at least 5 hours of gameplay. Exact length open; Castaway DS (about 12 h) is a loose reference. | 2026-11-16 |
 | C11 | Platform | PC, Windows first, Steam-ready. Mouse only, keyboard shortcuts as extras. No gamepad or touch in v1. | 2026-11-16 |
 | C12 | Resolution | Two layers: backgrounds at very low res (320x180 or 480x270), UI at twice the background res. Both pixelated. | 2026-11-16 |
@@ -45,10 +45,19 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C32 | Environment | Day/night and rain/storms everywhere via grading and overlays. Rain affects water collection, fire and Mood. No seasons. | 2026-11-16 |
 | C33 | Tides | Binary (high/low), only in specific scenes. Rolled per day: on some days a location is at low tide. Waiting in the scene does not change it. | 2026-11-16 |
 | C34 | Sleep | Mostly at camp. Several camps can be built across the island over the game (e.g. basic beach camp early, better inland camp later). Extra rest spots can be added if needed. | 2026-11-16 |
+| C35 | Minigames | No minigames for now (changed from the brief). May be considered later. | 2026-11-16 |
+| C36 | Camps | Multiple camps allowed (art cost not a concern; AI generated). Old camps stay usable. NPCs can be brought to a new camp and told to stay there. | 2026-11-16 |
+| C37 | Inventory | Unlimited inventory. No camp storage (adventure game, not micromanagement). | 2026-11-16 |
+| C38 | Recipes | Learned from triggers (holding ingredients, examining things gives the character an idea). Exact rules to be formalized later. | 2026-11-16 |
+| C39 | Crafting | Crafting happens at specific objects: e.g. flat stone for simple crafting, campfire for cooking. Such objects can exist anywhere in the world, and the player can also build them at assigned spots. | 2026-11-16 |
+| C40 | Durability | Nothing wears out. No durability, no consumable tools. | 2026-11-16 |
+| C41 | Food | Raw food plus fixed cooking recipes unlocked over time. Raw meat/fish carries illness risk. Food variety raises Mood. No spoilage. | 2026-11-16 |
+| C42 | Water | Drink directly at the creek. Carrying water needs a bottle. Rain catcher fills itself when it rains. | 2026-11-16 |
+| C43 | Resources | Three types: unique one-time items; renewable nodes (respawn when enough time has passed and the player sleeps); unlimited activity spots (each attempt costs time, random result). All scripted per node. | 2026-11-16 |
 
 ## Recommended (pending)
 
-Round 4 (inventory, storage, crafting, tools, food, renewal) recommendations are in the conversation.
+Round 5 (camp building) recommendations are in the conversation.
 
 ## Open
 
@@ -56,13 +65,11 @@ Round 4 (inventory, storage, crafting, tools, food, renewal) recommendations are
 - Resolutions: designer will supply specs with the art.
 - Exact list of "safe to lose" items.
 - Exact stat effects and decay rates.
-- Clarify C09 vs C29: are item-use puzzles in the first version?
-- Multiple camps: what carries over, where NPCs live, storage per camp.
-- Inventory, tools, crafting, food, resource renewal.
+- How NPCs are useful without separate storage/inventory.
+- Balance: with unlimited inventory and no spoilage, upkeep is limited only by production rate (node regrowth, time per attempt). Needs tuning so stockpiling does not erase the C23 curve.
 - Camp upgrades and their effect on daily play.
 - Objectives, story beats, ending.
 - NPCs, relationships, contributions.
-- Minigames.
 - Character presentation and action feedback without walking.
 - UI, accessibility, saving.
 - Content scope and asset workload.
