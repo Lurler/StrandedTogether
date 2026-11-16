@@ -50,7 +50,7 @@ Round 3 (scenes, travel, exploration, environment) recommendations are in the co
 
 - Release timeline / milestones (not answered yet, not blocking).
 - Resolutions: designer will supply specs with the art.
-- What triggers collapse, and exact list of "safe to lose" items.
+- Exact list of "safe to lose" items.
 - Exact stat effects and decay rates.
 - Where sleeping is allowed outside camp.
 - Scene interaction, travel, environment changes (weather, tides).
