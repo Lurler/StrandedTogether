@@ -54,10 +54,17 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C41 | Food | Raw food plus fixed cooking recipes unlocked over time. Raw meat/fish carries illness risk. Food variety raises Mood. No spoilage. | 2026-11-16 |
 | C42 | Water | Drink directly at the creek. Carrying water needs a bottle. Rain catcher fills itself when it rains. | 2026-11-16 |
 | C43 | Resources | Three types: unique one-time items; renewable nodes (respawn when enough time has passed and the player sleeps); unlimited activity spots (each attempt costs time, random result). All scripted per node. | 2026-11-16 |
+| C44 | Building | Each camp scene has fixed build spots. Clicking one shows buildable options with materials and time. Each spot has a fixed upgrade chain (one overlay sprite per level). | 2026-11-16 |
+| C45 | Upgrades | Categories: shelter, fire/cooking, crafting station, water, food production, Mood/decor. Every upgrade has one clear gameplay effect (decor: Mood). Specific items decided when scripting scenes. | 2026-11-16 |
+| C46 | Passive production | A small number (3-5 in the game) of upgrades produce resources over time, collected via the normal context menu. | 2026-11-16 |
+| C47 | Camps | Each camp has unique build options suited to its location, plus shared basics. Specific options decided later. | 2026-11-16 |
+| C48 | Damage | Weather never damages the camp. One-off scripted events are allowed if the story needs them. | 2026-11-16 |
+| C49 | Gating | Some camp upgrades are required for main progression; the rest are quality of life. | 2026-11-16 |
+| C50 | Balance | Stockpiling handled by tuning; activity spots may also deplete after a few attempts (per-spot scripting). | 2026-11-16 |
 
 ## Recommended (pending)
 
-Round 5 (camp building) recommendations are in the conversation.
+Round 6 (objectives, story, ending) recommendations are in the conversation.
 
 ## Open
 
@@ -66,8 +73,6 @@ Round 5 (camp building) recommendations are in the conversation.
 - Exact list of "safe to lose" items.
 - Exact stat effects and decay rates.
 - How NPCs are useful without separate storage/inventory.
-- Balance: with unlimited inventory and no spoilage, upkeep is limited only by production rate (node regrowth, time per attempt). Needs tuning so stockpiling does not erase the C23 curve.
-- Camp upgrades and their effect on daily play.
 - Objectives, story beats, ending.
 - NPCs, relationships, contributions.
 - Character presentation and action feedback without walking.
