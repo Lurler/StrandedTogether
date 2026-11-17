@@ -22,7 +22,7 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C09 | Progression | Spine is gathering, crafting, camp upgrading and exploring. Interactions are resource-cost actions (click river, spend time and energy, get fish). "Use item X on object Y" counts as the puzzle form and is in from the start. No bespoke logic puzzles for now. | 2026-11-16 |
 | C10 | Length | Target at least 5 hours of gameplay. Exact length open; Castaway DS (about 12 h) is a loose reference. | 2026-11-16 |
 | C11 | Platform | PC, Windows first, Steam-ready. Mouse only, keyboard shortcuts as extras. No gamepad or touch in v1. | 2026-11-16 |
-| C12 | Resolution | Two layers: backgrounds at very low res (320x180 or 480x270), UI at twice the background res. Both pixelated. | 2026-11-16 |
+| C12 | Resolution | World canvas 320x180 (backgrounds, props), drawn 2x into a 640x360 UI canvas. Details in `Docs/UI.md`. | 2026-11-16 |
 | C13 | Scaling | Point filtering only, no smoothing. Window resize adds black bars (letterbox/pillarbox). | 2026-11-16 |
 | C14 | Art source | All art generated in ChatGPT and supplied by the designer. | 2026-11-16 |
 | C15 | Business | Commercial project. | 2026-11-16 |
@@ -37,7 +37,7 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C24 | Onboarding | The opening is orchestrated: only tutorial-relevant actions are available until the player learns the basics, then full freedom. | 2026-11-16 |
 | C25 | Camp | Upgrades give concrete effects, e.g. better shelter: higher energy on waking, less affected by bad weather while sleeping, new interactions. | 2026-11-16 |
 | C26 | Goal | Quest structure: explore the whole island by finding and crafting the right items. Once everything is unlocked, a way off the island appears and finishing it wins the game. No deadline. | 2026-11-16 |
-| C27 | Interaction | LMB on anything opens a context menu of currently possible actions with time cost. RMB closes any menu (context or opened panel like inventory) and cancels states (e.g. item held on cursor). Examine is free. | 2026-11-16 |
+| C27 | Interaction | LMB on anything opens a context menu of currently possible actions (costs not shown, see C69). RMB closes any menu (context or opened panel like inventory) and cancels states (e.g. item held on cursor). Examine is free. | 2026-11-16 |
 | C28 | Tools | Owned tools add their actions to object menus automatically (e.g. "Chop" on a tree with an axe). Used for almost everything. | 2026-11-16 |
 | C29 | Item use | Manual item use exists for specific unhinted cases: inventory, LMB item, "Use on", inventory closes, item icon attaches to cursor, click a world object. RMB cancels. | 2026-11-16 |
 | C30 | Travel | Small arrows in scenes lead to neighbor scenes. Island map allows travel to any previously explored scene; costs in-game time, shown on hover. | 2026-11-16 |
@@ -77,18 +77,29 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C64 | Result feedback | Gained items get a visible indication (e.g. "+3 Wood"); placement decided when building the UI. No numeric stat change popups, but some up/down indication per stat may be needed. Rare or important results get a character comment. | 2026-11-16 |
 | C65 | Stat warnings | Bars change color or flash at thresholds; the character comments once per threshold crossing. | 2026-11-16 |
 | C66 | Transitions | Scene change probably a quick fade (about 0.2-0.3 s); to be tuned by experiment. | 2026-11-16 |
+| C67 | Architecture | Two parts: a scripting layer for game content and an engine written in C#. Scripting language not chosen yet. | 2026-11-17 |
+| C68 | HUD | Designer-supplied UI pack (`Assets/UIPack/`, summary in `Docs/UI.md`): bamboo side rails, Health/Food/Water left, Rest/Hygiene/Comfort right, 24h clock bottom-left, Inventory/Map/Skills buttons right, Menu bottom-left. | 2026-11-17 |
+| C69 | Costs | Action costs are not shown to the player; they learn by playing. | 2026-11-17 |
+| C70 | Saving | Autosave only, one slot. | 2026-11-17 |
+| C71 | Localization | Many languages at release; English only during development. All text externalized and localization-ready from the start. | 2026-11-17 |
+| C72 | Inventory UI | Inventory panel art will be supplied by the designer later. | 2026-11-17 |
 
 ## Recommended (pending)
 
-Round 9 (UI, saving, accessibility, localization) recommendations are in the conversation.
+Round 10 (technical setup and scope) recommendations are in the conversation.
 
 ## Open
 
 - Release timeline / milestones (not answered yet, not blocking).
-- Resolutions: designer will supply specs with the art.
 - Exact list of "safe to lose" items.
 - Exact stat effects and decay rates.
 - Story details, escape method, post-ending, mystery content: deferred until a prototype exists.
 - NPC relationship growth mechanics and NPC usefulness (ideas in conversation round 7: talking, gifts, requests, levels; daily jobs, specialty, two-person tasks, company). Deferred.
-- UI, accessibility, saving.
+- "Skills" HUD button: no skill system is defined yet. What is it?
+- Where the journal (C53) is opened from; HUD has no journal button.
+- Does map hover still show travel time (C30) given C69?
+- Autosave triggers (when exactly).
+- Release languages (affects font choice; CJK is hard at 640x360).
+- World safe zone under bamboo rails (proposed x 25..294).
+- Options/accessibility: deferred.
 - Content scope and asset workload.

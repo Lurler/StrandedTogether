@@ -1,0 +1,1204 @@
+{
+  "catalog": [
+    {
+      "pixel": "pixels/background/creek.png",
+      "size": [
+        320,
+        180
+      ],
+      "sources": [
+        "sources/background/creek_painting.png"
+      ],
+      "notes": "Nearest-neighbor resize to 320x180, preserving colors."
+    },
+    {
+      "pixel": "pixels/items/twigs_shadow.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/twigs_shadow_native.png"
+      ],
+      "notes": "Procedural shadow authored at 32x32; its original is this native-grid PNG."
+    },
+    {
+      "pixel": "pixels/items/twigs_sprite.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/twigs.png"
+      ],
+      "notes": "Alpha cleanup, crop, nearest-neighbor sprite resize; 32x32 padded canvas, anchor (16,28)."
+    },
+    {
+      "pixel": "pixels/items/empty_bottle_shadow.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/empty_bottle_shadow_native.png"
+      ],
+      "notes": "Procedural shadow authored at 32x32; its original is this native-grid PNG."
+    },
+    {
+      "pixel": "pixels/items/empty_bottle_sprite.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/empty_bottle.png"
+      ],
+      "notes": "Alpha cleanup, crop, nearest-neighbor sprite resize; 32x32 padded canvas, anchor (16,28)."
+    },
+    {
+      "pixel": "pixels/items/palm_frond_shadow.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/palm_frond_shadow_native.png"
+      ],
+      "notes": "Procedural shadow authored at 32x32; its original is this native-grid PNG."
+    },
+    {
+      "pixel": "pixels/items/palm_frond_sprite.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/palm_frond.png"
+      ],
+      "notes": "Alpha cleanup, crop, nearest-neighbor sprite resize; 32x32 padded canvas, anchor (16,28)."
+    },
+    {
+      "pixel": "pixels/items/coconut_shadow.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/coconut_shadow_native.png"
+      ],
+      "notes": "Procedural shadow authored at 32x32; its original is this native-grid PNG."
+    },
+    {
+      "pixel": "pixels/items/coconut_sprite.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/coconut.png"
+      ],
+      "notes": "Alpha cleanup, crop, nearest-neighbor sprite resize; 32x32 padded canvas, anchor (16,28)."
+    },
+    {
+      "pixel": "pixels/items/shell_shadow.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/shell_shadow_native.png"
+      ],
+      "notes": "Procedural shadow authored at 32x32; its original is this native-grid PNG."
+    },
+    {
+      "pixel": "pixels/items/shell_sprite.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/shell.png"
+      ],
+      "notes": "Alpha cleanup, crop, nearest-neighbor sprite resize; 32x32 padded canvas, anchor (16,28)."
+    },
+    {
+      "pixel": "pixels/items/rock_shadow.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/rock_shadow_native.png"
+      ],
+      "notes": "Procedural shadow authored at 32x32; its original is this native-grid PNG."
+    },
+    {
+      "pixel": "pixels/items/rock_sprite.png",
+      "size": [
+        32,
+        32
+      ],
+      "sources": [
+        "sources/items/rock.png"
+      ],
+      "notes": "Alpha cleanup, crop, nearest-neighbor sprite resize; 32x32 padded canvas, anchor (16,28)."
+    },
+    {
+      "pixel": "pixels/ui/bamboo/left.png",
+      "size": [
+        50,
+        360
+      ],
+      "sources": [
+        "sources/bamboo/left.png",
+        "sources/bamboo/generated_frame.png",
+        "sources/bamboo/original_reference_frame.png"
+      ],
+      "notes": "Restored bare rails; alpha cleanup and original visible-rail retouch patches. Final processed pixels are authoritative."
+    },
+    {
+      "pixel": "pixels/ui/bamboo/right.png",
+      "size": [
+        50,
+        360
+      ],
+      "sources": [
+        "sources/bamboo/right.png",
+        "sources/bamboo/generated_frame.png",
+        "sources/bamboo/original_reference_frame.png"
+      ],
+      "notes": "Restored bare rails; alpha cleanup and original visible-rail retouch patches. Final processed pixels are authoritative."
+    },
+    {
+      "pixel": "pixels/ui/wood/status_block.png",
+      "size": [
+        36,
+        128
+      ],
+      "sources": [
+        "sources/wood/status_block.png"
+      ],
+      "notes": "Alpha-cleaned wood; resized to 36x128. Reuse the same sprite on both sides."
+    },
+    {
+      "pixel": "pixels/ui/indicators/health/empty.png",
+      "size": [
+        20,
+        19
+      ],
+      "sources": [
+        "sources/indicators/health/empty.png"
+      ],
+      "notes": "Native texture-preserving underpaint; all residual painted color removed for a truly empty runtime cavity, then nearest-neighbor resize."
+    },
+    {
+      "pixel": "pixels/ui/indicators/health/fill.png",
+      "size": [
+        20,
+        19
+      ],
+      "sources": [
+        "sources/indicators/health/fill.png"
+      ],
+      "notes": "Source-sized material/mask derivation, then nearest-neighbor resize; painted texture retained."
+    },
+    {
+      "pixel": "pixels/ui/indicators/health/demo_fill.png",
+      "size": [
+        20,
+        19
+      ],
+      "sources": [
+        "sources/indicators/health/demo_fill.png"
+      ],
+      "notes": "Source-sized material/mask derivation, then nearest-neighbor resize; painted texture retained."
+    },
+    {
+      "pixel": "pixels/ui/indicators/health/demo.png",
+      "size": [
+        20,
+        19
+      ],
+      "sources": [
+        "sources/indicators/health/original.png"
+      ],
+      "notes": "Nearest-neighbor source reduction. Demo is the accepted authored partial-fill image."
+    },
+    {
+      "pixel": "pixels/ui/indicators/health/mask.png",
+      "size": [
+        20,
+        19
+      ],
+      "sources": [
+        "sources/indicators/health/mask.png"
+      ],
+      "notes": "Source-sized material/mask derivation, then nearest-neighbor resize; painted texture retained."
+    },
+    {
+      "pixel": "pixels/ui/indicators/health/mask_alpha.png",
+      "size": [
+        20,
+        19
+      ],
+      "sources": [
+        "sources/indicators/health/mask.png"
+      ],
+      "notes": "White RGB, alpha equals luminance mask; same sprite size and origin."
+    },
+    {
+      "pixel": "pixels/ui/indicators/food/empty.png",
+      "size": [
+        20,
+        22
+      ],
+      "sources": [
+        "sources/indicators/food/empty.png"
+      ],
+      "notes": "Native texture-preserving underpaint; all residual painted color removed for a truly empty runtime cavity, then nearest-neighbor resize."
+    },
+    {
+      "pixel": "pixels/ui/indicators/food/fill.png",
+      "size": [
+        20,
+        22
+      ],
+      "sources": [
+        "sources/indicators/food/fill.png"
+      ],
+      "notes": "Source-sized material/mask derivation, then nearest-neighbor resize; painted texture retained."
+    },
+    {
+      "pixel": "pixels/ui/indicators/food/demo_fill.png",
+      "size": [
+        20,
+        22
+      ],
+      "sources": [
+        "sources/indicators/food/demo_fill.png"
+      ],
+      "notes": "Source-sized material/mask derivation, then nearest-neighbor resize; painted texture retained."
+    },
+    {
+      "pixel": "pixels/ui/indicators/food/demo.png",
+      "size": [
+        20,
+        22
+      ],
+      "sources": [
+        "sources/indicators/food/original.png"
+      ],
+      "notes": "Nearest-neighbor source reduction. Demo is the accepted authored partial-fill image."
+    },
+    {
+      "pixel": "pixels/ui/indicators/food/mask.png",
+      "size": [
+        20,
+        22
+      ],
+      "sources": [
+        "sources/indicators/food/mask.png"
+      ],
+      "notes": "Source-sized material/mask derivation, then nearest-neighbor resize; painted texture retained."
+    },
+    {
+      "pixel": "pixels/ui/indicators/food/mask_alpha.png",
+      "size": [
+        20,
+        22
+      ],
+      "sources": [
+        "sources/indicators/food/mask.png"
+      ],
+      "notes": "White RGB, alpha equals luminance mask; same sprite size and origin."
+    },
+    {
+      "pixel": "pixels/ui/indicators/water/empty.png",
+      "size": [
+        18,
+        25
+      ],
+      "sources": [
+        "sources/indicators/water/empty.png"
+      ],
+      "notes": "Native texture-preserving underpaint; all residual painted color removed for a truly empty runtime cavity, then nearest-neighbor resize."
+    },
+    {
+      "pixel": "pixels/ui/indicators/water/fill.png",
+      "size": [
+        18,
+        25
+      ],
+      "sources": [
+        "sources/indicators/water/fill.png"
+      ],
+      "notes": "Source-sized material/mask derivation, then nearest-neighbor resize; painted texture retained."
+    },
+    {
+      "pixel": "pixels/ui/indicators/water/demo_fill.png",
+      "size": [
+        18,
+        25
+      ],
+      "sources": [
+        "sources/indicators/water/demo_fill.png"
+      ],
+      "notes": "Source-sized material/mask derivation, then nearest-neighbor resize; painted texture retained."
+    },
+    {
+      "pixel": "pixels/ui/indicators/water/demo.png",
+      "size": [
+        18,
+        25
+      ],
+      "sources": [
+        "sources/indicators/water/original.png"
+      ],
+      "notes": "Nearest-neighbor source reduction. Demo is the accepted authored partial-fill image."
+    },
+    {
+      "pixel": "pixels/ui/indicators/water/mask.png",
+      "size": [
+        18,
+        25
+      ],
+      "sources": [
+        "sources/indicators/water/mask.png"
+      ],
+      "notes": "Source-sized material/mask derivation, then nearest-neighbor resize; painted texture retained."
+    },
+    {
+      "pixel": "pixels/ui/indicators/water/mask_alpha.png",
+      "size": [
+        18,
+        25
+      ],
+      "sources": [
+        "sources/indicators/water/mask.png"
+      ],
+      "notes": "White RGB, alpha equals luminance mask; same sprite size and origin."
+    },
+    {
+      "pixel": "pixels/ui/indicators/rest/empty.png",
+      "size": [
+        19,
+        22
+      ],
+      "sources": [
+        "sources/indicators/rest/empty.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 11 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/rest/fill.png",
+      "size": [
+        19,
+        22
+      ],
+      "sources": [
+        "sources/indicators/rest/fill.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 11 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/rest/mask.png",
+      "size": [
+        19,
+        22
+      ],
+      "sources": [
+        "sources/indicators/rest/mask.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 11 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/rest/mask_alpha.png",
+      "size": [
+        19,
+        22
+      ],
+      "sources": [
+        "sources/indicators/rest/mask.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 11 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/rest/demo_fill.png",
+      "size": [
+        19,
+        22
+      ],
+      "sources": [
+        "sources/indicators/rest/demo_fill.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 11 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/rest/demo.png",
+      "size": [
+        19,
+        22
+      ],
+      "sources": [
+        "sources/indicators/rest/demo.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 11 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/hygiene/empty.png",
+      "size": [
+        22,
+        17
+      ],
+      "sources": [
+        "sources/indicators/hygiene/empty.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 6 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/hygiene/fill.png",
+      "size": [
+        22,
+        17
+      ],
+      "sources": [
+        "sources/indicators/hygiene/fill.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 6 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/hygiene/mask.png",
+      "size": [
+        22,
+        17
+      ],
+      "sources": [
+        "sources/indicators/hygiene/mask.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 6 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/hygiene/mask_alpha.png",
+      "size": [
+        22,
+        17
+      ],
+      "sources": [
+        "sources/indicators/hygiene/mask.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 6 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/hygiene/demo_fill.png",
+      "size": [
+        22,
+        17
+      ],
+      "sources": [
+        "sources/indicators/hygiene/demo_fill.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 6 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/hygiene/demo.png",
+      "size": [
+        22,
+        17
+      ],
+      "sources": [
+        "sources/indicators/hygiene/demo.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 6 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/comfort/empty.png",
+      "size": [
+        19,
+        24
+      ],
+      "sources": [
+        "sources/indicators/comfort/empty.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 4 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/comfort/fill.png",
+      "size": [
+        19,
+        24
+      ],
+      "sources": [
+        "sources/indicators/comfort/fill.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 4 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/comfort/mask.png",
+      "size": [
+        19,
+        24
+      ],
+      "sources": [
+        "sources/indicators/comfort/mask.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 4 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/comfort/mask_alpha.png",
+      "size": [
+        19,
+        24
+      ],
+      "sources": [
+        "sources/indicators/comfort/mask.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 4 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/comfort/demo_fill.png",
+      "size": [
+        19,
+        24
+      ],
+      "sources": [
+        "sources/indicators/comfort/demo_fill.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 4 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/indicators/comfort/demo.png",
+      "size": [
+        19,
+        24
+      ],
+      "sources": [
+        "sources/indicators/comfort/demo.png"
+      ],
+      "notes": "Nearest-neighbor resize; demo paint clears 4 top rows. Mask alpha and paint alpha match exactly."
+    },
+    {
+      "pixel": "pixels/ui/clock/face.png",
+      "size": [
+        62,
+        64
+      ],
+      "sources": [
+        "sources/clock/face.png"
+      ],
+      "notes": "Painted wooden face and bezel generated as one object, alpha-cleaned, fit within 64x64 with nearest-neighbor."
+    },
+    {
+      "pixel": "pixels/ui/clock/hand_noon.png",
+      "size": [
+        64,
+        64
+      ],
+      "sources": [
+        "sources/clock/hand_noon.png"
+      ],
+      "notes": "Hand was authored directly on the 64x64 UI grid. This is its native source, not an enlarged stand-in."
+    },
+    {
+      "pixel": "pixels/ui/clock/hand_demo.png",
+      "size": [
+        64,
+        64
+      ],
+      "sources": [
+        "sources/clock/hand_demo.png"
+      ],
+      "notes": "Hand was authored directly on the 64x64 UI grid. This is its native source, not an enlarged stand-in."
+    },
+    {
+      "pixel": "pixels/ui/buttons/inventory_stone.png",
+      "size": [
+        39,
+        38
+      ],
+      "sources": [
+        "sources/buttons/inventory_stone.png"
+      ],
+      "notes": "Original crop, alpha cleanup / symbol isolation, nearest-neighbor fit. Accepted pixel file copied unchanged."
+    },
+    {
+      "pixel": "pixels/ui/buttons/inventory_symbol.png",
+      "size": [
+        22,
+        26
+      ],
+      "sources": [
+        "sources/buttons/inventory_symbol.png"
+      ],
+      "notes": "Original crop, alpha cleanup / symbol isolation, nearest-neighbor fit. Accepted pixel file copied unchanged."
+    },
+    {
+      "pixel": "pixels/ui/buttons/map_stone.png",
+      "size": [
+        39,
+        38
+      ],
+      "sources": [
+        "sources/buttons/map_stone.png"
+      ],
+      "notes": "Original crop, alpha cleanup / symbol isolation, nearest-neighbor fit. Accepted pixel file copied unchanged."
+    },
+    {
+      "pixel": "pixels/ui/buttons/map_symbol.png",
+      "size": [
+        25,
+        22
+      ],
+      "sources": [
+        "sources/buttons/map_symbol.png"
+      ],
+      "notes": "Original crop, alpha cleanup / symbol isolation, nearest-neighbor fit. Accepted pixel file copied unchanged."
+    },
+    {
+      "pixel": "pixels/ui/buttons/skills_stone.png",
+      "size": [
+        39,
+        38
+      ],
+      "sources": [
+        "sources/buttons/skills_stone.png"
+      ],
+      "notes": "Original crop, alpha cleanup / symbol isolation, nearest-neighbor fit. Accepted pixel file copied unchanged."
+    },
+    {
+      "pixel": "pixels/ui/buttons/skills_symbol.png",
+      "size": [
+        25,
+        22
+      ],
+      "sources": [
+        "sources/buttons/skills_symbol.png"
+      ],
+      "notes": "Original crop, alpha cleanup / symbol isolation, nearest-neighbor fit. Accepted pixel file copied unchanged."
+    },
+    {
+      "pixel": "pixels/ui/buttons/menu_stone.png",
+      "size": [
+        39,
+        38
+      ],
+      "sources": [
+        "sources/buttons/menu_stone.png"
+      ],
+      "notes": "Original crop, alpha cleanup / symbol isolation, nearest-neighbor fit. Accepted pixel file copied unchanged."
+    },
+    {
+      "pixel": "pixels/ui/buttons/menu_symbol.png",
+      "size": [
+        25,
+        25
+      ],
+      "sources": [
+        "sources/buttons/menu_symbol.png"
+      ],
+      "notes": "Original crop, alpha cleanup / symbol isolation, nearest-neighbor fit. Accepted pixel file copied unchanged."
+    },
+    {
+      "pixel": "pixels/ui/indicators/health/demo_empty.png",
+      "size": [
+        20,
+        19
+      ],
+      "sources": [
+        "sources/indicators/health/demo_empty.png"
+      ],
+      "notes": "Exact accepted demo underpaint; paired with demo_fill.png only. Runtime uses empty.png."
+    },
+    {
+      "pixel": "pixels/ui/indicators/food/demo_empty.png",
+      "size": [
+        20,
+        22
+      ],
+      "sources": [
+        "sources/indicators/food/demo_empty.png"
+      ],
+      "notes": "Exact accepted demo underpaint; paired with demo_fill.png only. Runtime uses empty.png."
+    },
+    {
+      "pixel": "pixels/ui/indicators/water/demo_empty.png",
+      "size": [
+        18,
+        25
+      ],
+      "sources": [
+        "sources/indicators/water/demo_empty.png"
+      ],
+      "notes": "Exact accepted demo underpaint; paired with demo_fill.png only. Runtime uses empty.png."
+    }
+  ],
+  "world_rows": [
+    {
+      "image": "pixels/background/creek.png",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 180,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "Creek background"
+    },
+    {
+      "image": "pixels/items/twigs_shadow.png",
+      "x": 125,
+      "y": 102,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "twigs shadow"
+    },
+    {
+      "image": "pixels/items/twigs_sprite.png",
+      "x": 125,
+      "y": 102,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "twigs sprite"
+    },
+    {
+      "image": "pixels/items/empty_bottle_shadow.png",
+      "x": 230,
+      "y": 109,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "empty_bottle shadow"
+    },
+    {
+      "image": "pixels/items/empty_bottle_sprite.png",
+      "x": 230,
+      "y": 109,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "empty_bottle sprite"
+    },
+    {
+      "image": "pixels/items/palm_frond_shadow.png",
+      "x": 99,
+      "y": 143,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "palm_frond shadow"
+    },
+    {
+      "image": "pixels/items/palm_frond_sprite.png",
+      "x": 99,
+      "y": 143,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "palm_frond sprite"
+    },
+    {
+      "image": "pixels/items/coconut_shadow.png",
+      "x": 186,
+      "y": 132,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "coconut shadow"
+    },
+    {
+      "image": "pixels/items/coconut_sprite.png",
+      "x": 186,
+      "y": 132,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "coconut sprite"
+    },
+    {
+      "image": "pixels/items/shell_shadow.png",
+      "x": 247,
+      "y": 144,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "shell shadow"
+    },
+    {
+      "image": "pixels/items/shell_sprite.png",
+      "x": 247,
+      "y": 144,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "shell sprite"
+    },
+    {
+      "image": "pixels/items/rock_shadow.png",
+      "x": 269,
+      "y": 127,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "rock shadow"
+    },
+    {
+      "image": "pixels/items/rock_sprite.png",
+      "x": 269,
+      "y": 127,
+      "width": 32,
+      "height": 32,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "rock sprite"
+    }
+  ],
+  "ui_rows": [
+    {
+      "image": "pixels/ui/bamboo/left.png",
+      "x": 0,
+      "y": 0,
+      "width": 50,
+      "height": 360,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "left bamboo"
+    },
+    {
+      "image": "pixels/ui/bamboo/right.png",
+      "x": 590,
+      "y": 0,
+      "width": 50,
+      "height": 360,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "right bamboo"
+    },
+    {
+      "image": "pixels/ui/wood/status_block.png",
+      "x": 3,
+      "y": 7,
+      "width": 36,
+      "height": 128,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "Left status wood"
+    },
+    {
+      "image": "pixels/ui/wood/status_block.png",
+      "x": 602,
+      "y": 7,
+      "width": 36,
+      "height": 128,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "Right status wood"
+    },
+    {
+      "image": "pixels/ui/indicators/health/demo_empty.png",
+      "x": 11,
+      "y": 22,
+      "width": 20,
+      "height": 19,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "health cavity"
+    },
+    {
+      "image": "pixels/ui/indicators/health/demo_fill.png",
+      "x": 11,
+      "y": 22,
+      "width": 20,
+      "height": 19,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "health authored demo paint"
+    },
+    {
+      "image": "pixels/ui/indicators/food/demo_empty.png",
+      "x": 11,
+      "y": 61,
+      "width": 20,
+      "height": 22,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "food cavity"
+    },
+    {
+      "image": "pixels/ui/indicators/food/demo_fill.png",
+      "x": 11,
+      "y": 61,
+      "width": 20,
+      "height": 22,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "food authored demo paint"
+    },
+    {
+      "image": "pixels/ui/indicators/water/demo_empty.png",
+      "x": 12,
+      "y": 100,
+      "width": 18,
+      "height": 25,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "water cavity"
+    },
+    {
+      "image": "pixels/ui/indicators/water/demo_fill.png",
+      "x": 12,
+      "y": 100,
+      "width": 18,
+      "height": 25,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "water authored demo paint"
+    },
+    {
+      "image": "pixels/ui/indicators/rest/empty.png",
+      "x": 610,
+      "y": 21,
+      "width": 19,
+      "height": 22,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "rest cavity"
+    },
+    {
+      "image": "pixels/ui/indicators/rest/fill.png",
+      "x": 610,
+      "y": 21,
+      "width": 19,
+      "height": 22,
+      "scale": 1,
+      "clear_top_rows": 11,
+      "name": "rest demo fill"
+    },
+    {
+      "image": "pixels/ui/indicators/hygiene/empty.png",
+      "x": 609,
+      "y": 64,
+      "width": 22,
+      "height": 17,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "hygiene cavity"
+    },
+    {
+      "image": "pixels/ui/indicators/hygiene/fill.png",
+      "x": 609,
+      "y": 64,
+      "width": 22,
+      "height": 17,
+      "scale": 1,
+      "clear_top_rows": 6,
+      "name": "hygiene demo fill"
+    },
+    {
+      "image": "pixels/ui/indicators/comfort/empty.png",
+      "x": 610,
+      "y": 100,
+      "width": 19,
+      "height": 24,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "comfort cavity"
+    },
+    {
+      "image": "pixels/ui/indicators/comfort/fill.png",
+      "x": 610,
+      "y": 100,
+      "width": 19,
+      "height": 24,
+      "scale": 1,
+      "clear_top_rows": 4,
+      "name": "comfort demo fill"
+    },
+    {
+      "image": "pixels/ui/clock/face.png",
+      "x": 5,
+      "y": 236,
+      "width": 62,
+      "height": 64,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "Painted wood clock"
+    },
+    {
+      "image": "pixels/ui/clock/hand_demo.png",
+      "x": 4,
+      "y": 236,
+      "width": 64,
+      "height": 64,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "Single clock hand, demo pose"
+    },
+    {
+      "image": "pixels/ui/buttons/inventory_stone.png",
+      "x": 598,
+      "y": 208,
+      "width": 39,
+      "height": 38,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "inventory stone"
+    },
+    {
+      "image": "pixels/ui/buttons/inventory_symbol.png",
+      "x": 606,
+      "y": 214,
+      "width": 22,
+      "height": 26,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "inventory symbol"
+    },
+    {
+      "image": "pixels/ui/buttons/map_stone.png",
+      "x": 598,
+      "y": 262,
+      "width": 39,
+      "height": 38,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "map stone"
+    },
+    {
+      "image": "pixels/ui/buttons/map_symbol.png",
+      "x": 605,
+      "y": 270,
+      "width": 25,
+      "height": 22,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "map symbol"
+    },
+    {
+      "image": "pixels/ui/buttons/skills_stone.png",
+      "x": 598,
+      "y": 314,
+      "width": 39,
+      "height": 38,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "skills stone"
+    },
+    {
+      "image": "pixels/ui/buttons/skills_symbol.png",
+      "x": 605,
+      "y": 322,
+      "width": 25,
+      "height": 22,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "skills symbol"
+    },
+    {
+      "image": "pixels/ui/buttons/menu_stone.png",
+      "x": 5,
+      "y": 316,
+      "width": 39,
+      "height": 38,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "menu stone"
+    },
+    {
+      "image": "pixels/ui/buttons/menu_symbol.png",
+      "x": 12,
+      "y": 322,
+      "width": 25,
+      "height": 25,
+      "scale": 1,
+      "clear_top_rows": 0,
+      "name": "menu symbol"
+    }
+  ],
+  "indicators": {
+    "health": {
+      "x": 11,
+      "y": 22,
+      "width": 20,
+      "height": 19,
+      "demo": "authored paint boundary",
+      "demo_cut_rows": null,
+      "mask": "pixels/ui/indicators/health/mask.png",
+      "fill": "pixels/ui/indicators/health/fill.png",
+      "empty": "pixels/ui/indicators/health/empty.png"
+    },
+    "food": {
+      "x": 11,
+      "y": 61,
+      "width": 20,
+      "height": 22,
+      "demo": "authored paint boundary",
+      "demo_cut_rows": null,
+      "mask": "pixels/ui/indicators/food/mask.png",
+      "fill": "pixels/ui/indicators/food/fill.png",
+      "empty": "pixels/ui/indicators/food/empty.png"
+    },
+    "water": {
+      "x": 12,
+      "y": 100,
+      "width": 18,
+      "height": 25,
+      "demo": "authored paint boundary",
+      "demo_cut_rows": null,
+      "mask": "pixels/ui/indicators/water/mask.png",
+      "fill": "pixels/ui/indicators/water/fill.png",
+      "empty": "pixels/ui/indicators/water/empty.png"
+    },
+    "rest": {
+      "x": 610,
+      "y": 21,
+      "width": 19,
+      "height": 22,
+      "demo": 0.5,
+      "demo_cut_rows": 11,
+      "mask": "pixels/ui/indicators/rest/mask.png",
+      "fill": "pixels/ui/indicators/rest/fill.png",
+      "empty": "pixels/ui/indicators/rest/empty.png"
+    },
+    "hygiene": {
+      "x": 609,
+      "y": 64,
+      "width": 22,
+      "height": 17,
+      "demo": 0.62,
+      "demo_cut_rows": 6,
+      "mask": "pixels/ui/indicators/hygiene/mask.png",
+      "fill": "pixels/ui/indicators/hygiene/fill.png",
+      "empty": "pixels/ui/indicators/hygiene/empty.png"
+    },
+    "comfort": {
+      "x": 610,
+      "y": 100,
+      "width": 19,
+      "height": 24,
+      "demo": 0.83,
+      "demo_cut_rows": 4,
+      "mask": "pixels/ui/indicators/comfort/mask.png",
+      "fill": "pixels/ui/indicators/comfort/fill.png",
+      "empty": "pixels/ui/indicators/comfort/empty.png"
+    }
+  },
+  "canvas": [
+    640,
+    360
+  ],
+  "world_canvas": [
+    320,
+    180
+  ]
+}
