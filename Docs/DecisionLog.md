@@ -90,14 +90,9 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C77 | Localization | English text is written directly in the script code, no string IDs. Common reusable labels (default actions like "Pick up") are stored once in a shared collection to avoid duplication. | 2026-11-18 |
 | C78 | Localization | Override approach: English is written in code; per-language files override it by structural key derived from the script, e.g. `Scenes.Beach1.ObjectXyz.KeyZxc = "..."`. Missing key falls back to English. | 2026-11-18 |
 | C79 | Localization | String interpolation is allowed in game text. | 2026-11-18 |
+| C80 | Localization | R08-R10 (template export with stale detection, interpolation templates, numbered line keys) accepted in principle; exact implementation decided later. | 2026-11-18 |
 
 ## Recommended (pending)
-
-| ID | Area | Recommendation |
-|---|---|---|
-| R08 | Localization | The engine exports a full English key list (the template for translators) and stores the English original next to each translation, so changed English lines are flagged as stale and fall back to English. |
-| R09 | Localization | Interpolated text is captured with a C# interpolated string handler, so translators see a template ("Caught {0} fish.") with the values filled in at runtime. |
-| R10 | Localization | Keys for several lines in one block: automatic numbering (Run.1, Run.2) with an optional explicit key on any line that should stay stable. |
 
 Round 10 (technical setup and scope) remaining questions are in the conversation: MonoGame + custom UI, hotspot mask images, dev overlay, first playable slice, development order.
 
