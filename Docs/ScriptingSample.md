@@ -1,6 +1,6 @@
 # Scripting sample
 
-Illustration of the intended script shape (C73-C80, C81-C85). Not a final API: names, signatures and helpers will be settled during implementation.
+Illustration of the intended script shape (C73-C83). Not a final API: names, signatures and helpers will be settled during implementation.
 
 ## Scenario
 
