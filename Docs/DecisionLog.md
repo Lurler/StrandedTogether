@@ -84,10 +84,19 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C71 | Localization | Many languages at release; English only during development. All text externalized and localization-ready from the start. | 2026-11-17 |
 | C72 | Inventory UI | Inventory panel art will be supplied by the designer later. | 2026-11-17 |
 | C73 | Scripting | Not pure data-driven scene definitions. Real scripting: the entire game progression is implemented in high-level scripts using an API exposed by the engine. Language and API shape in discussion. | 2026-11-18 |
+| C74 | Scripting | Scripts are C#, compiled at build time. Modding is not a goal. | 2026-11-18 |
+| C75 | Projects | Two projects: a clean, game-agnostic engine, and a separate game project that uses it and holds all resources, definitions and game content (scenes, objects, progression). | 2026-11-18 |
+| C76 | Scene scripts | Each scene part (exit, object, action) is its own visually separate block, so a scene can be read at a glance. | 2026-11-18 |
+| C77 | Localization | English text is written directly in the script code, no string IDs. Common reusable labels (default actions like "Pick up") are stored once in a shared collection to avoid duplication. | 2026-11-18 |
 
 ## Recommended (pending)
 
-Round 10 (technical setup and scope) recommendations are in the conversation.
+| ID | Area | Recommendation |
+|---|---|---|
+| R06 | Localization | gettext-style: the English text itself is the lookup key. A build-time tool scans the game project for text passed to text-taking API calls (Say, labels, item names, journal) and writes/updates one translation file per language (.po or CSV). Changed English lines get flagged for retranslation. Optional context argument only when the same English needs different translations. |
+| R07 | Localization | Text with variables uses placeholders, never C# string interpolation: Say("I caught {0} fish.", n). A Roslyn analyzer warns on interpolated or concatenated strings in text APIs. Plurals handled by the localization layer. |
+
+Round 10 (technical setup and scope) remaining questions are in the conversation: MonoGame + custom UI, hotspot mask images, dev overlay, first playable slice, development order.
 
 ## Open
 
