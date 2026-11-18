@@ -83,6 +83,7 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C70 | Saving | Autosave only, one slot. | 2026-11-17 |
 | C71 | Localization | Many languages at release; English only during development. All text externalized and localization-ready from the start. | 2026-11-17 |
 | C72 | Inventory UI | Inventory panel art will be supplied by the designer later. | 2026-11-17 |
+| C73 | Scripting | Not pure data-driven scene definitions. Real scripting: the entire game progression is implemented in high-level scripts using an API exposed by the engine. Language and API shape in discussion. | 2026-11-18 |
 
 ## Recommended (pending)
 
