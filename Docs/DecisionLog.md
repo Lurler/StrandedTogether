@@ -91,6 +91,9 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C78 | Localization | Override approach: English is written in code; per-language files override it by structural key derived from the script, e.g. `Scenes.Beach1.ObjectXyz.KeyZxc = "..."`. Missing key falls back to English. | 2026-11-18 |
 | C79 | Localization | String interpolation is allowed in game text. | 2026-11-18 |
 | C80 | Localization | R08-R10 (template export with stale detection, interpolation templates, numbered line keys) accepted in principle; exact implementation decided later. | 2026-11-18 |
+| C81 | Items | Items are defined in an Items folder, one class per item. Assets are found automatically by namespace/class (e.g. `Game.Items.Food.Coconut` -> `Assets/Items/Food/Coconut/`). An item has an icon, several world sprites for different placements in scenes, name, examine text and other properties. | 2026-11-18 |
+| C82 | Scripting | No magic strings. Flags are an enum; items, scenes and faces are types/enums; assets and hotspots resolved by convention. | 2026-11-18 |
+| C83 | Costs | Costs are predefined per entity type (pickup, exit, etc.) and can be overridden per instance. | 2026-11-18 |
 
 ## Recommended (pending)
 
