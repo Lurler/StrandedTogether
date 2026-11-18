@@ -94,8 +94,14 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C81 | Items | Items are defined in an Items folder, one class per item. Assets are found automatically by namespace/class (e.g. `Game.Items.Food.Coconut` -> `Assets/Items/Food/Coconut/`). An item has an icon, several world sprites for different placements in scenes, name, examine text and other properties. | 2026-11-18 |
 | C82 | Scripting | No magic strings. Flags are an enum; items, scenes and faces are types/enums; assets and hotspots resolved by convention. | 2026-11-18 |
 | C83 | Costs | Costs are predefined per entity type (pickup, exit, etc.) and can be overridden per instance. | 2026-11-18 |
+| C84 | Items | The world sprite (placement variant) is chosen automatically from the item's position in the scene; can be overridden manually. | 2026-11-18 |
 
 ## Recommended (pending)
+
+| ID | Area | Recommendation |
+|---|---|---|
+| R11 | Items | Placement detection uses a per-scene surface mask (`Assets/Scenes/<Scene>/surface.png`, 320x180, flat colors for ground, shallow water, etc.). The engine samples it at the item's ground anchor. |
+| R12 | Scripting | Template entity types: `Pickup<T>`, `Renewable<T>`, `Exit<T>`, `BlockedExit<T>`, `BuildSpot<T>`. Buildables are chains of level classes; interfaces on a level (`IRestSpot`, `ICraftingStation<T>`) add standard actions. Template state (picked, count, level, unblocked) is saved without flags. |
 
 Round 10 (technical setup and scope) remaining questions are in the conversation: MonoGame + custom UI, hotspot mask images, dev overlay, first playable slice, development order.
 
