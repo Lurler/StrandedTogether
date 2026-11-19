@@ -95,13 +95,23 @@ Working title: **Stranded Together** (from the repository name; not confirmed as
 | C82 | Scripting | No magic strings. Flags are an enum; items, scenes and faces are types/enums; assets and hotspots resolved by convention. | 2026-11-18 |
 | C83 | Costs | Costs are predefined per entity type (pickup, exit, etc.) and can be overridden per instance. | 2026-11-18 |
 | C84 | Items | The world sprite (placement variant) is chosen automatically from the item's position in the scene; can be overridden manually. | 2026-11-18 |
+| C85 | Architecture | The engine contains no gameplay logic. It provides generic primitives (scenes, objects, exits, actions, conditions, state, UI). Higher-level concepts (pickups, renewables, build spots, blocked paths, sleeping) are built in the game project. | 2026-11-19 |
+| C86 | UI | Building and crafting use standardized UI (required resources, build/craft button). The engine provides the generic panels; the game decides when to show them and fills them with data. | 2026-11-19 |
+| C87 | Items | World sprite variants: near, middle, far (chosen automatically from vertical position), hanging and other special variants by manual override. | 2026-11-19 |
+| C88 | Tutorial | Hiding the creek exit until the shelter is built is a game-side decision; the engine only evaluates visibility conditions. | 2026-11-19 |
+| C89 | Resources | Renewables have an average rate per day that can be fractional (e.g. 1.3), with randomness so drops do not come on the clock every day. | 2026-11-19 |
+| C90 | Costs | Default costs live in the game project. | 2026-11-19 |
 
 ## Recommended (pending)
 
 | ID | Area | Recommendation |
 |---|---|---|
-| R11 | Items | Placement detection uses a per-scene surface mask (`Assets/Scenes/<Scene>/surface.png`, 320x180, flat colors for ground, shallow water, etc.). The engine samples it at the item's ground anchor. |
-| R12 | Scripting | Template entity types: `Pickup<T>`, `Renewable<T>`, `Exit<T>`, `BlockedExit<T>`, `BuildSpot<T>`. Buildables are chains of level classes; interfaces on a level (`IRestSpot`, `ICraftingStation<T>`) add standard actions. Template state (picked, count, level, unblocked) is saved without flags. |
+| R13 | Architecture | Engine/game split as listed in `Docs/ScriptingSample.md` "Layers". |
+| R14 | UI | Engine has a generic requirements panel (picture, title, text, required entries with have/need, optional blocking reason, confirm button) and a list panel. Build and craft UIs are both made from these by game templates. |
+| R15 | Resources | Regrowth uses a jittered accumulator: each day add PerDay * random(0.5..1.5) to a hidden pool, spawn the whole part, keep the fraction, cap at Max. Long-term average stays exact; individual days vary. |
+| R16 | Costs | All tunables in one `Balance.cs` in the game project; templates take their default cost from it; instances override with `Cost = ...`. |
+| R17 | Sleep | Sleep is an ordinary action declared by the shelter level via a game helper (`Sleep.Action(quality)`), no marker interfaces. |
+| R18 | Items | Depth bands (near/middle/far) use global Y thresholds with optional per-scene override. |
 
 Round 10 (technical setup and scope) remaining questions are in the conversation: MonoGame + custom UI, hotspot mask images, dev overlay, first playable slice, development order.
 

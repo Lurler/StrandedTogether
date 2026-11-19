@@ -1,54 +1,97 @@
 # Scripting sample
 
-Illustration of the intended script shape (C73-C84). Not a final API: names, signatures and helpers will be settled during implementation.
+Illustration of the intended script shape (C73-C90). Not a final API: names, signatures and helpers will be settled during implementation.
 
-## Scenario
+## Layers
 
-First beach scene. Three items lie on the sand. Each has an examine line and a comment on pickup. When all three are picked up, the character comments and the path inland appears.
+**Engine** (game-agnostic, no gameplay rules):
+- Scenes, scene objects (sprite or hotspot), exits, actions (label, duration, condition, handler).
+- `Visible` / condition hooks on every object, exit and action. The engine evaluates them; it never knows why.
+- Game clock and time events, saved state store (any enum flags/counters), autosave, localization.
+- Rendering, hover outline, context menu, progress circle, dialogue box with portraits, fades.
+- Standard UI panels the game fills with data: inventory grid, list panel, requirements panel (C86), notes list.
+- Sprite variant selection by vertical position (C87).
 
-## Conventions shown here
+**Game project** (rules + definitions + content):
+- Survival rules: stats, decay, collapse, sleep, theft.
+- Items, recipes, buildables, journal notes, flags, faces.
+- Higher-level templates built from engine primitives: `Pickup<T>`, `Renewable<T>`, `BuildSpot<T>`, `Station<T>`.
+- `Balance.cs`: every tunable number, including default costs (C90).
+- Scenes.
 
-- **No magic strings.** Items, scenes, flags and faces are types or enums. Assets and hotspot masks are found by convention from namespace and class/field names.
-- **Items live in their own folder**, one class per item. Assets are picked up automatically from the matching asset folder.
-- **Costs come from per-entity-type defaults** and are overridden only when a specific case needs it.
+Rule: if the engine would need to know what "building", "sleeping" or "hunger" means, it belongs in the game project.
 
 ## Folder layout (game project)
 
 ```
 Game/
+  Balance.cs
   Flags.cs
-  Defaults.cs
+  Notes.cs
+  Labels.cs
+  Templates/      Pickup.cs  Renewable.cs  BuildSpot.cs  Station.cs
+  Rules/          Stats.cs  Sleep.cs  Collapse.cs
   Items/
     Containers/EmptyBottle.cs
     Food/Coconut.cs
     Materials/Twigs.cs
+  Buildables/
+    Shelter.cs
+    Campfire.cs
   Scenes/
     Beach1.cs
+    JungleEdge.cs
 Assets/
   Items/
-    Containers/EmptyBottle/  icon.png  ground.png  ground_shadow.png  shallow.png
-    Food/Coconut/            icon.png  ground.png  ground_shadow.png  hanging.png
-    Materials/Twigs/         icon.png  ground.png  ground_shadow.png
+    Food/Coconut/      icon.png  near.png  middle.png  far.png  hanging.png  (+ *_shadow.png where needed)
+  Buildables/
+    Shelters/LeanTo/   sprite.png
   Scenes/
-    Beach1/                  background.png  ToJungleEdge.png (hotspot mask)
+    Beach1/            background.png  <hotspot masks named after fields>
 ```
 
-- Namespace `Game.Items.Food` + class `Coconut` maps to `Assets/Items/Food/Coconut/`.
-- `icon.png` is the inventory icon (UI grid). Placement sprites (`ground`, `shallow`, `hanging`, ...) are world-grid sprites for different positions in a scene; an item has only the placements it has files for.
-- The placement sprite is chosen automatically from the item's position in the scene (C84) and can be overridden with `Placement = ...`.
-- Scene `Beach1` maps to `Assets/Scenes/Beach1/`. A hotspot mask file is named after the field that uses it (`ToJungleEdge.png`).
+- Namespace + class name maps to the asset folder (`Game.Items.Food.Coconut` -> `Assets/Items/Food/Coconut/`).
+- `icon.png` is the inventory icon (UI grid). `near`, `middle`, `far` are world sprites at different depths; `hanging` and other special variants are only used by manual override. An item only has the variants it has files for.
+- Variant is chosen automatically from the object's vertical position (C87) and can be overridden with `Placement = ...`.
 
-## Items
+## Balance.cs: where defaults live
 
 ```csharp
-namespace Game.Items.Containers;
+namespace Game;
 
-public class EmptyBottle : Item
+// Every tunable number in one file
+public static class Balance
 {
-    public override string Name    => "Empty bottle";
-    public override string Examine => "A glass bottle. Empty, but not cracked.";
+    public static class Costs
+    {
+        public static readonly Cost Pickup = new(minutes: 5);
+        public static readonly Cost Gather = new(minutes: 20);
+        public static readonly Cost Travel = new(minutes: 15);
+        public static readonly Cost Build  = new(minutes: 120, energy: 20);
+        public static readonly Cost Craft  = new(minutes: 30);
+    }
+
+    public static class Sleep
+    {
+        public const int WakeHour = 6;
+    }
 }
 ```
+
+Templates read their default from here; any instance can set its own `Cost`:
+
+```csharp
+namespace Game.Templates;
+
+public class Pickup<T> : SceneObject where T : Item, new()
+{
+    public Cost Cost     { get; init; } = Balance.Costs.Pickup;
+    public int  Quantity { get; init; } = 1;
+    // builds a normal engine action from these values
+}
+```
+
+## Items
 
 ```csharp
 namespace Game.Items.Food;
@@ -61,45 +104,24 @@ public class Coconut : Item
 }
 ```
 
-```csharp
-namespace Game.Items.Materials;
+## Flags, notes, labels
 
-public class Twigs : Item
+```csharp
+public enum Flags { Beach1Searched, ShelterBuilt, VinesCut }
+
+public enum Notes { BuildShelter, VinesNorth }
+
+// Shared action labels, written once (C77)
+public static class Labels
 {
-    public override string Name       => "Twigs";
-    public override string Examine    => "Dry twigs. They would burn nicely.";
-    public override bool   SafeToLose => true;
+    public static readonly Label PickUp = "Pick up";
+    public static readonly Label Gather = "Gather";
+    public static readonly Label Sleep  = "Sleep";
+    public static readonly Label Cut    = "Cut through";
 }
 ```
 
-## Flags
-
-```csharp
-namespace Game;
-
-public enum Flags
-{
-    Beach1Searched,
-    // ...
-}
-```
-
-## Per-type defaults
-
-```csharp
-namespace Game;
-
-public static class Defaults
-{
-    public static readonly Cost Pickup = new(minutes: 5);
-    public static readonly Cost Exit   = new(minutes: 15);
-    // Harvest, Build, Craft, ...
-}
-```
-
-Defaults live in the game project, not the engine, so the engine stays game-agnostic.
-
-## Scene script
+## Scene 1: Beach1
 
 ```csharp
 namespace Game.Scenes;
@@ -116,7 +138,7 @@ public class Beach1 : Scene
         }
     }
 
-    // Empty bottle in the shallow water (shallow sprite picked automatically from position)
+    // Empty bottle near the waterline
     public Pickup<EmptyBottle> Bottle = new()
     {
         Position = (230, 109),
@@ -139,7 +161,7 @@ public class Beach1 : Scene
         OnPickup = async () => await Say("If I can get a fire going, at least the nights won't be pitch black."),
     };
 
-    // Path inland, appears once the beach is searched
+    // Path inland, hidden until the beach is searched
     public Exit<JungleEdge> ToJungleEdge = new()
     {
         Visible = () => IsSet(Flags.Beach1Searched),
@@ -158,128 +180,55 @@ public class Beach1 : Scene
 }
 ```
 
-## What the engine does without being told
+## Buildables (game project)
 
-- `Pickup<T>` adds the shared "Pick up" action (C77), charges `Defaults.Pickup` unless `Cost` is set, runs the progress circle (C63), adds the item, shows the gain indication (C64), hides the sprite and saves that it was picked.
-- Placement is chosen from position unless overridden; default examine is the item's own `Examine` text.
-- `Exit<T>` uses `Defaults.Exit` unless overridden, and its hotspot mask is found by field name.
-- Hover outline, context menu, Examine, stat decay over spent time.
-- `Visible = false` objects and exits are neither drawn nor clickable.
-
-## Derived localization keys (C78, C80)
-
-```
-Items.Containers.EmptyBottle.Name    = "Empty bottle"
-Items.Containers.EmptyBottle.Examine = "A glass bottle. Empty, but not cracked."
-Scenes.Beach1.OnEnter.1              = "Ugh... my head. Sand everywhere."
-Scenes.Beach1.Bottle.OnPickup        = "Something to carry water in. Lucky."
-Scenes.Beach1.Coconut.Examine        = "Fell from the palm above. Breakfast, if I can get it open."
-Scenes.Beach1.AfterAction.1          = "That's everything on this stretch of sand."
-```
-
-A Russian file overrides only what it translates:
-
-```
-Items.Containers.EmptyBottle.Examine = "Стеклянная бутылка. Пустая, но целая."
-```
-
----
-
-# Scene 2: JungleEdge (first camp)
-
-Reached from Beach1. Flat clearing at the jungle edge with two build spots (shelter, campfire), a renewable palm, a few pickups, and three exits: back to the beach, east to the creek (opens after the shelter is built, tutorial pacing C24), and north into the jungle (blocked by vines until the player has a machete).
-
-## New supporting definitions
-
-```csharp
-namespace Game;
-
-public enum Flags
-{
-    Beach1Searched,
-    ShelterBuilt,
-}
-
-public enum Notes
-{
-    BuildShelter,
-    VinesNorth,
-}
-
-// Shared action labels, written once (C77)
-public static class Labels
-{
-    public static readonly Label PickUp = "Pick up";
-    public static readonly Label Gather = "Gather";
-    public static readonly Label Build  = "Build";
-    public static readonly Label Sleep  = "Sleep";
-    public static readonly Label Cook   = "Cook";
-    public static readonly Label Cut    = "Cut through";
-}
-
-public static class Defaults
-{
-    public static readonly Cost Pickup = new(minutes: 5);
-    public static readonly Cost Gather = new(minutes: 20);
-    public static readonly Cost Exit   = new(minutes: 15);
-    public static readonly Cost Build  = new(minutes: 120, energy: 20);
-}
-```
-
-## Buildables
-
-A buildable is a chain of levels. Each level is its own class with its own overlay sprite, found by convention (`Game.Buildables.Shelters.LeanTo` -> `Assets/Buildables/Shelters/LeanTo/sprite.png`). Interfaces on a level add standard actions automatically: `IRestSpot` adds "Sleep", `ICraftingStation<T>` adds "Cook" (or the station's label) and opens the crafting menu.
+A buildable is a chain of levels. Each level is a class with its overlay sprite found by convention. Anything a level lets you do (like sleeping) is an ordinary action it declares; there are no marker interfaces.
 
 ```csharp
 namespace Game.Buildables;
 
-// Shelter chain: lean-to, then hut
 public class Shelter : Buildable
 {
     public override BuildLevel[] Levels => [new LeanTo(), new Hut()];
-}
-
-// Campfire chain: a single level for now
-public class Campfire : Buildable
-{
-    public override BuildLevel[] Levels => [new FirePit()];
 }
 ```
 
 ```csharp
 namespace Game.Buildables.Shelters;
 
-public class LeanTo : BuildLevel, IRestSpot
+public class LeanTo : BuildLevel
 {
     public override string Name      => "Lean-to";
     public override string Examine   => "Fronds over a frame of sticks. Home, for now.";
     public override Need[] Materials => [Need<PalmFrond>(3), Need<Twigs>(1)];
-    public float SleepQuality        => 0.6f;
-}
-
-public class Hut : BuildLevel, IRestSpot
-{
-    public override string Name      => "Hut";
-    public override string Examine   => "Walls, a roof, and almost no leaks.";
-    public override Need[] Materials => [Need<Bamboo>(8), Need<Rope>(2), Need<PalmFrond>(6)];
-    public override bool   Requires  => Has<StoneAxe>();
-    public float SleepQuality        => 0.85f;
+    public override Act[]  Actions   => [Sleep.Action(quality: 0.6f)];
 }
 ```
+
+`Sleep.Action` is a game helper in `Rules/Sleep.cs` that returns a normal action. The engine sees only "an action labelled Sleep with a handler".
+
+## Standard UI for building and crafting (C86)
+
+The engine has one generic **requirements panel**: picture, name, description, a list of required entries (icon + have/need), an optional blocking reason, and a confirm button with a label. It knows nothing about building or crafting.
+
+- `BuildSpot<T>` (game) fills it with the next level's sprite, materials and "Build".
+- `Station<T>` (game) opens the engine's list panel with known recipes; picking one opens the requirements panel with "Craft" / "Cook".
 
 ```csharp
-namespace Game.Buildables.Campfires;
-
-public class FirePit : BuildLevel, ICraftingStation<CookingRecipes>
+// Inside the game's BuildSpot<T> template
+await Ui.Requirements(new()
 {
-    public override string Name      => "Fire pit";
-    public override string Examine   => "A ring of stones and a small, stubborn fire.";
-    public override Need[] Materials => [Need<Rock>(3), Need<Twigs>(2)];
-    public override Cost   Cost      => new(minutes: 60, energy: 10);
-}
+    Picture  = next.Sprite,
+    Title    = next.Name,
+    Text     = next.Examine,
+    Entries  = next.Materials.Select(m => new Entry(m.Item.Icon, Have: Count(m.Item), Need: m.Amount)),
+    Blocked  = next.Requires ? null : next.RequiresHint,
+    Confirm  = Labels.Build,
+    OnConfirm = () => BuildNext(),
+});
 ```
 
-## Scene script
+## Scene 2: JungleEdge (first camp)
 
 ```csharp
 namespace Game.Scenes;
@@ -325,11 +274,11 @@ public class JungleEdge : Scene
 
     // ---------- Resources ----------
 
-    // Young palm by the clearing, fronds grow back
+    // Young palm by the clearing, about 1.3 fronds per day on average, randomized (C89)
     public Renewable<PalmFrond> Palm = new()
     {
         Max     = 3,
-        Regrow  = 1,   // per sleep, once enough time has passed (C43)
+        PerDay  = 1.3,
         Examine = async () => await Say("A young palm. The lower fronds are within reach."),
         OnEmpty = async () => await Say("That's all the fronds I can reach. They'll grow back."),
     };
@@ -357,48 +306,54 @@ public class JungleEdge : Scene
         Examine   = async () => await Say("A coconut stuck in the bush. Someone up there likes me."),
     };
 
+    // ---------- Vines blocking the north path ----------
+
+    // The vines are their own object; cutting them sets a flag
+    public SceneObject Vines = new()
+    {
+        Visible = () => !IsSet(Flags.VinesCut),
+        Examine = async () =>
+        {
+            await Say("Vines as thick as my wrist. I'm not getting through with bare hands.");
+            Journal.Add(Notes.VinesNorth, "Find something sharp to cut the vines north of camp.");
+        },
+        Actions =
+        [
+            new()
+            {
+                Label = Labels.Cut,
+                When  = () => Has<Machete>(),
+                Cost  = new(minutes: 45, energy: 15),
+                Run   = async () =>
+                {
+                    Set(Flags.VinesCut);
+                    Journal.Resolve(Notes.VinesNorth);
+                    await Say("Took forever, but there's a path now.");
+                },
+            },
+        ],
+    };
+
     // ---------- Exits ----------
 
     // Back to the beach
     public Exit<Beach1> ToBeach = new();
 
-    // East to the creek, opens once the camp is started (tutorial pacing)
+    // East to the creek, hidden until the shelter is built (tutorial pacing, game decision)
     public Exit<Creek> ToCreek = new()
     {
         Cost    = new(minutes: 25),
         Visible = () => IsSet(Flags.ShelterBuilt),
     };
 
-    // Overgrown path north, needs a blade
-    public BlockedExit<DeepJungle> ToDeepJungle = new()
+    // North into the jungle, a plain exit that appears once the vines are cut
+    public Exit<DeepJungle> ToDeepJungle = new()
     {
-        Examine = async () =>
-        {
-            await Say("Vines as thick as my wrist. I'm not getting through with bare hands.");
-            Journal.Add(Notes.VinesNorth, "Find something sharp to cut the vines north of camp.");
-        },
-        Unblock = new()
-        {
-            Label    = Labels.Cut,
-            Requires = () => Has<Machete>(),
-            Cost     = new(minutes: 45, energy: 15),
-            Run      = async () =>
-            {
-                Journal.Resolve(Notes.VinesNorth);
-                await Say("Took forever, but there's a path now.");
-            },
-        },
+        Visible = () => IsSet(Flags.VinesCut),
     };
 }
 ```
 
-## What the engine does without being told
-
-- `BuildSpot<T>` shows an empty spot (hotspot mask by field name), offers "Build <next level>" with its materials when the player has them and `Requires` passes, charges `Defaults.Build` or the level's own cost, consumes materials, draws the level's overlay sprite, saves the level, and adds actions from the level's interfaces (Sleep, Cook).
-- `Renewable<T>` adds "Gather" with `Defaults.Gather`, tracks the remaining count and regrowth in saved state.
-- `BlockedExit<T>` is a visible exit that cannot be used until its `Unblock` action succeeds; afterwards it behaves as a normal exit. Its blocked/unblocked state is saved without a flag.
-- `Pickup<T>` with `Quantity` gives that many units in one action.
-
 ## Tutorial check
 
-Beach1 gives 1 twig. JungleEdge gives 3 fronds, 3 rocks and 2 twigs. Lean-to needs 3 fronds + 1 twig; fire pit needs 3 rocks + 2 twigs. Both can be built on day 1 with what these two scenes provide.
+Beach1 gives 1 twig. JungleEdge gives 3 fronds (palm starts full), 3 rocks and 2 twigs. Lean-to needs 3 fronds + 1 twig; fire pit needs 3 rocks + 2 twigs. Both can be built on day 1.
